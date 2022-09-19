@@ -623,17 +623,7 @@ ifeq ($(strip $(OPENRGB_ENABLE)), yes)
     OPT_DEFS += -DOPENRGB_ENABLE
 endif
 
-ifeq ($(strip $(DYNAMIC_KEYMAP_ENABLE)), yes)
-    OPT_DEFS += -DDYNAMIC_KEYMAP_ENABLE
-    SRC += $(QUANTUM_DIR)/dynamic_keymap.c
-endif
-
-ifeq ($(strip $(DIP_SWITCH_ENABLE)), yes)
-    OPT_DEFS += -DDIP_SWITCH_ENABLE
-    SRC += $(QUANTUM_DIR)/dip_switch.c
-endif
-
-VALID_MAGIC_TYPES := yes lite
+VALID_MAGIC_TYPES := yes
 BOOTMAGIC_ENABLE ?= no
 ifneq ($(strip $(BOOTMAGIC_ENABLE)), no)
   ifeq ($(filter $(BOOTMAGIC_ENABLE),$(VALID_MAGIC_TYPES)),)
