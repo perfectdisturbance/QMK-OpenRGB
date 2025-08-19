@@ -34,3 +34,20 @@ QMK is developed and maintained by Jack Humbert of OLKB with contributions from 
 ## Official Website
 
 [qmk.fm](https://qmk.fm) is the official website of QMK, where you can find links to this page, the documentation, and the keyboards supported by QMK.
+
+
+## Notes about custom build
+
+git clone https://github.com/Kasper24/QMK-OpenRGB.git
+cd QMK-OpenRGB/
+git remote add qmk https://github.com/qmk/qmk_firmware.git
+git fetch qmk
+git config merge.renameLimit 999999
+git merge qmk/master
+RESOLVE CONFLICT
+git remote add keychron https://github.com/Keychron/qmk_firmware.git
+git fetch keychron
+git checkout keychron/playground keyboards/keychron/v1
+git checkout keychron/playground keyboards/keychron/factory
+qmk setup -H {path to QMK-OpenRGB}
+qmk compile -kb keychron/v1/v1_ansi_stm32l432 -km default
